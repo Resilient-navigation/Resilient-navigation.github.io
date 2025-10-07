@@ -46,6 +46,9 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript> <!-- table style-->
+
+
+
 	<style>
 		/* 统一冷色系配色体系 */
 		:root {
@@ -100,6 +103,7 @@
 			color: var(--soft-purple);
 			text-decoration: underline;
 		}
+
 
 		/* 标题样式优化 - 确保清晰可读 */
 		h1,
@@ -167,6 +171,33 @@
 			color: var(--pure-white);
 			transform: translateY(-2px);
 			box-shadow: 0 12px 24px rgba(74, 144, 226, 0.15);
+		}
+
+		/* 让content section中的ol列表左对齐 */
+		#content .inner ol {
+			align-self: flex-start;
+			/* 覆盖父容器的align-items: center，设置自身左对齐 */
+			margin-left: 0;
+			/* 确保无额外左margin */
+		}
+
+		#content .inner p {
+			align-self: flex-start;
+			/* 覆盖父容器的align-items: center，设置自身左对齐 */
+			margin-left: 0;
+			/* 确保无额外左margin */
+		}
+
+		/* 单独让这个段落左对齐 */
+		.left-align-solo {
+			text-align: left;
+			/* 文字左对齐 */
+			align-self: flex-start;
+			/* 覆盖父容器的flex居中对齐（关键） */
+			width: 100%;
+			/* 确保段落宽度占满父容器，避免文字过短导致视觉上不靠左 */
+			margin-left: 0;
+			/* 清除可能的默认左外边距 */
 		}
 
 		#schedule_tab th {
@@ -538,10 +569,10 @@
 					unstructured environments. Attendees are expected to include faculty, postdoctoral researchers,
 					graduate students, and engineers from academia and industry (focused on navigation algorithms,
 					sensor data processing, simulation technologies) .
-				</p>
 				<p>
 					The workshop specifically targets members of relevant IEEE Robotics and Automation Society (RAS)
 					Technical Committees, including:
+				</p>
 				</p>
 				<ol>
 					<li>Algorithms for Planning and Control of Robot Motion</li>
@@ -565,53 +596,68 @@
 				<div class="row"></div>
 
 				<h3>Time Zone: GMT+08</h3>
-				<table id="participants_tab">
+				<table id="schedule_tab">
 					<tr>
-						<th>No</th>
-						<th>Name</th>
-						<th>Titles</th>
+						<th>Time</th>
+						<th>Speaker</th>
+						<th>Talk Title</th>
 					</tr>
 					<tr>
-						<td>1</td>
-						<td>Huimin Lu</td>
+						<td style="white-space: nowrap;">08:30-08:40</td>
+						<td style="white-space: nowrap;">Opening remarks and introduction</td>
+						<td>Overview of workshop themes and objectives</td>
+					</tr>
+					<tr>
+						<td style="white-space: nowrap;">08:40-09:00</td>
+						<td style="white-space: nowrap;">Invited Talk 1: Huimin Lu</td>
 						<td>Improving the Autonomy for Articulated Tracked Robots Traversing Rough Terrains</td>
 					</tr>
 					<tr>
-						<td>2</td>
-						<td>Zhiguo Lu</td>
+						<td style="white-space: nowrap;">09:00-09:20</td>
+						<td style="white-space: nowrap;">Invited Talk 2: Zhiguo Lu</td>
 						<td>Study of High Mobility Multi-Locomotion Robot in Wild</td>
 					</tr>
 					<tr>
-						<td>3</td>
-						<td>Weitao Chen</td>
+						<td style="white-space: nowrap;">09:20-09:40</td>
+						<td style="white-space: nowrap;">Invited Talk 3: Weitao Chen</td>
 						<td>Geomechanics-Constrained and Soil Modeling-Integrated Off-Road Trafficablity Assessment
 							Method</td>
 					</tr>
 					<tr>
-						<td>4</td>
-						<td style="white-space: nowrap;">Shuhang Zhang</td>
+						<td style="white-space: nowrap;">09:40-10:00</td>
+						<td style="white-space: nowrap;">Invited Talk 4: Shuhang Zhang</td>
 						<td>Mapping the drifting sea ice with UAV photogrammetry</td>
 					</tr>
 					<tr>
-						<td>5</td>
-						<td>Qingyun Liu</td>
+						<td style="white-space: nowrap;">10:00-10:10</td>
+						<td style="white-space: nowrap;">Coffee break</td>
+						<td>Networking</td>
+					</tr>
+					<tr>
+						<td style="white-space: nowrap;">10:10-10:30</td>
+						<td style="white-space: nowrap;">Invited Talk 5: Qingyun Liu</td>
 						<td>Fast Path Planning of Multienvironmental Factors Comprehensive Constraints in Off-Road
 							Environment Constructed by Aggregation Vector Point Method</td>
 					</tr>
 					<tr>
-						<td>6</td>
-						<td>Tong Yan</td>
+						<td style="white-space: nowrap;">10:30-10:50</td>
+						<td style="white-space: nowrap;">Invited Talk 6: Tong Yan</td>
 						<td>Research on Crossterrainics in Wolf Pack System</td>
 					</tr>
 					<tr>
-						<td>7</td>
-						<td>Li Wei</td>
+						<td style="white-space: nowrap;">10:50-11:10</td>
+						<td style="white-space: nowrap;">Invited Talk 7: Li Wei</td>
 						<td>Navigating the Unseen: From State to Motion in the Wild</td>
 					</tr>
 					<tr>
-						<td>8</td>
-						<td>Xiaohui Li</td>
+						<td style="white-space: nowrap;">11:10-11:30</td>
+						<td style="white-space: nowrap;">Invited Talk 8: Xiaohui Li</td>
 						<td>TBD</td>
+					</tr>
+					<tr>
+						<td style="white-space: nowrap;">11:30-11:50</td>
+						<td style="white-space: nowrap;">Panel Discussion</td>
+						<td>Interactive discussion on workshop core topics; panelists TBA</td>
 					</tr>
 				</table>
 				<p style="margin-top: 1rem; font-style: italic;">Note: The schedule may be adjusted; please refer to the
@@ -624,7 +670,8 @@
 			<div class="inner">
 				<h2>Plan to Solicit Participation</h2>
 				<br>
-				<p>To ensure wide and diverse participation, a multi-channel outreach strategy is adopted:</p>
+				<p class="left-align-solo">To ensure wide and diverse participation, a multi-channel outreach strategy
+					is adopted:</p>
 				<ul>
 					<li><strong>Targeted Outreach via Established Channels</strong>: Leverage established mailing lists,
 						professional social media platforms, and networks such as the IEEE Robotics and Automation
@@ -644,7 +691,8 @@
 
 				<br>
 				<h3>Dissemination of Workshop Outcomes</h3>
-				<p>To maximize impact, workshop materials will be widely disseminated through:</p>
+				<p class="left-align-solo">To maximize impact, workshop materials will be widely disseminated through:
+				</p>
 				<ul>
 					<li><strong>Online Repository</strong>: Share poster abstracts, presentation slides, and relevant
 						documentation via a dedicated online platform .</li>
@@ -658,118 +706,120 @@
 		</section>
 
 		<!-- Invited Speakers -->
-<section id="talks" class="wrapper style2 spotlights">
-    <div class="inner">
-        <h2>Invited Speakers </h2>
-        <br>_______________________________________________________________________________________________<br>
-        <br>
+		<section id="talks" class="wrapper style2 spotlights">
+			<div class="inner">
+				<h2>Invited Speakers </h2>
+				<br>_______________________________________________________________________________________________<br>
+				<br>
 
-        <!-- 1. 卢惠民 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="卢惠民 / Huimin Lu" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>卢惠民 / Huimin Lu</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    College of Intelligence Science and Technology, National University of Defense Technology, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 1. 卢惠民 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="卢惠民 / Huimin Lu" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>卢惠民 / Huimin Lu</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							College of Intelligence Science and Technology, National University of Defense Technology,
+							China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-        <!-- 2. 陆志国 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="陆志国 / Zhiguo Lu" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>陆志国 / Zhiguo Lu</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    School of Mechanical Engineering and Automation, Northeastern University, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 2. 陆志国 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="陆志国 / Zhiguo Lu" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>陆志国 / Zhiguo Lu</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							School of Mechanical Engineering and Automation, Northeastern University, China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-        <!-- 3. 陈伟涛 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="陈伟涛 / Weitao Chen" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>陈伟涛 / Weitao Chen</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    China University of Geosciences, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 3. 陈伟涛 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="陈伟涛 / Weitao Chen" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>陈伟涛 / Weitao Chen</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							China University of Geosciences, China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-        <!-- 4. 张书航 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="张书航 / Shuhang Zhang" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>张书航 / Shuhang Zhang</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    School of Geospatial Engineering and Science, Sun Yat-sen University, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 4. 张书航 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="张书航 / Shuhang Zhang" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>张书航 / Shuhang Zhang</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							School of Geospatial Engineering and Science, Sun Yat-sen University, China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-        <!-- 5. 刘清云 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="刘清云 / Qingyun Liu" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>刘清云 / Qingyun Liu</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    Information Engineering University, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 5. 刘清云 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="刘清云 / Qingyun Liu" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>刘清云 / Qingyun Liu</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							Information Engineering University, China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-        <!-- 6. 闫曈 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="闫曈 / Tong Yan" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>闫曈 / Tong Yan</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    China North Artificial Intelligence & Innovation Research Institute; Collective Intelligence & Collaboration Laboratory, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 6. 闫曈 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="闫曈 / Tong Yan" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>闫曈 / Tong Yan</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							China North Artificial Intelligence & Innovation Research Institute; Collective Intelligence
+							& Collaboration Laboratory, China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-        <!-- 7. 李玮 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="李玮 / Li Wei" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>李玮 / Li Wei</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    Institute of Computing Technology, Chinese Academy of Sciences, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 7. 李玮 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="李玮 / Li Wei" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>李玮 / Li Wei</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							Institute of Computing Technology, Chinese Academy of Sciences, China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-        <!-- 8. 李晓辉 -->
-        <div class="speaker">
-            <img src="images/speaker-placeholder.png" alt="李晓辉 / Xiaohui Li" class="img-list">
-            <div class="speaker-info">
-                <h3 class="name-list"><b>李晓辉 / Xiaohui Li</b></h3>
-                <div class="info-list">
-                    Academic Affiliation: <br>
-                    National University of Defense Technology, China
-                </div>
-            </div>
-        </div>
-        <hr style="width:80%;text-align:left;margin-left:5">
+				<!-- 8. 李晓辉 -->
+				<div class="speaker">
+					<img src="images/speaker-placeholder.png" alt="李晓辉 / Xiaohui Li" class="img-list">
+					<div class="speaker-info">
+						<h3 class="name-list"><b>李晓辉 / Xiaohui Li</b></h3>
+						<div class="info-list">
+							Academic Affiliation: <br>
+							National University of Defense Technology, China
+						</div>
+					</div>
+				</div>
+				<hr style="width:80%;text-align:left;margin-left:5">
 
-    </div>
-</section>
+			</div>
+		</section>
 		<style>
 			.speaker {
 				display: flex;
@@ -988,7 +1038,8 @@
 			<div class="inner">
 				<h2 style="text-align: center;">Equipment Requirements</h2>
 				<br>
-				<p>To support the interactive format and expected attendance (50-80 participants), the following
+				<p class="left-align-solo">To support the interactive format and expected attendance (50-80
+					participants), the following
 					equipment is requested:</p>
 				<ul>
 					<li><strong>Flexible Seating</strong>: Configurable arrangements that support both large group
@@ -1000,7 +1051,8 @@
 						sessions, with an expected display of around 10 posters (adjustable based on final registration
 						numbers) .</li>
 				</ul>
-				<p>These requirements aim to create a conducive environment for both presentation and active engagement
+				<p class="left-align-solo">These requirements aim to create a conducive environment for both
+					presentation and active engagement
 					.</p>
 			</div>
 		</section>
