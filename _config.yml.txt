@@ -1,0 +1,4 @@
+theme: jekyll-theme-primer
+title: My GitHub Pages Site
+description: A simple Jekyll site
+source: .

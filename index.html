@@ -1,0 +1,951 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("2025-10-24T08:00:00.000-12:00");
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+
+<html>	<head>
+		<title>Workshop IROS 2025: Towards Resilient Navigation in the Wild</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>		<!-- table style-->		<style>			/* 统一冷色系配色体系 */
+			:root {
+				--primary-blue: #4A90E2;
+				--soft-purple: #8B7EC8;
+				--ice-blue: #E3F2FD;
+				--steel-blue: #90CAF9;
+				--cool-gray: #F5F7FA;
+				--medium-gray: #E1E8ED;
+				--text-dark: #2C3E50;
+				--text-light: #546E7A;
+				--pure-white: #FFFFFF;
+				--subtle-shadow: rgba(0, 0, 0, 0.08);
+			}
+
+			/* 全局扁平化风格 */
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				color: var(--text-dark);
+			}
+
+			/* 美化滚动条 */
+			::-webkit-scrollbar {
+				width: 8px;
+			}			::-webkit-scrollbar-track {
+				background: var(--cool-gray);
+			}
+
+			::-webkit-scrollbar-thumb {
+				background: linear-gradient(135deg, var(--primary-blue), var(--soft-purple));
+				border-radius: 10px;
+			}
+
+			::-webkit-scrollbar-thumb:hover {
+				background: linear-gradient(135deg, var(--soft-purple), var(--primary-blue));
+			}
+
+			a{
+				color: var(--primary-blue);
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+
+			a:hover {
+				color: var(--soft-purple);
+				text-decoration: underline;
+			}			/* 标题样式优化 - 确保清晰可读 */
+			h1, h2, h3, h4, h5, h6 {
+				color: var(--text-dark);
+				font-weight: 700;
+				line-height: 1.2;
+			}
+
+			h1 {
+				color: var(--text-dark);
+				font-size: 3rem;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+
+			h2 {
+				color: var(--text-dark);
+				position: relative;
+				padding-bottom: 1rem;
+			}
+
+			h2::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 60px;
+				height: 4px;
+				background: linear-gradient(135deg, var(--primary-blue), var(--soft-purple));
+				border-radius: 2px;
+			}#schedule_tab {
+			  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			  border-collapse: separate;
+			  border-spacing: 0;
+			  width: 100%;
+			  border-radius: 16px;
+			  overflow: hidden;
+			  background: var(--pure-white);
+			  box-shadow: 0 8px 32px var(--subtle-shadow);
+			  border: 1px solid var(--medium-gray);
+			}
+
+			#schedule_tab td, #schedule_tab th {
+			  border: none;
+			  border-bottom: 1px solid var(--medium-gray);
+			  padding: 20px 24px;
+			  color: var(--text-dark);
+			  font-weight: 500;
+			  transition: all 0.3s ease;
+			}			#schedule_tab tr:nth-child(even) {
+				background: var(--ice-blue);
+			}
+			
+			#schedule_tab tr:hover {
+				background: linear-gradient(135deg, var(--primary-blue) 0%, var(--soft-purple) 100%);
+				color: var(--pure-white);
+				transform: translateY(-2px);
+				box-shadow: 0 12px 24px rgba(74, 144, 226, 0.15);
+			}
+
+			#schedule_tab th {
+			  padding: 24px;
+			  text-align: left;
+			  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--soft-purple) 100%);
+			  color: var(--pure-white);
+			  font-weight: 700;
+			  font-size: 0.9rem;
+			  letter-spacing: 0.5px;
+			  text-transform: uppercase;
+			  border-bottom: none;
+			}/* 扁平化优雅背景 */
+			#intro {
+				position: relative;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 4em 2em;
+				overflow: hidden;
+			}
+
+			#intro::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+					radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+				pointer-events: none;
+			}
+
+			#intro .inner {
+				position: relative;
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(10px);
+				padding: 3em;
+				border-radius: 16px;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+			}
+
+			.image-row {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+				flex-wrap: wrap;
+			}
+
+			.full-size-img {
+				/* max-width: 100%; */
+				height: auto;
+				flex: 1 1 auto;
+				/* max-height: 120px; */
+			}
+			.inner {
+				width: auto; /* Width adjusts to content */
+				height: auto; /* Height adjusts to content */
+				padding: 20px; /* Optional: Add padding for spacing */
+				margin: 0 auto; /* Optional: Center the container horizontally */
+				display: flex; /* Use Flexbox for flexible layout */
+				flex-direction: column; /* Stack children vertically */
+				align-items: center; /* Center children horizontally */
+				justify-content: center; /* Center children vertically */
+				text-align: justify; /* Justify text content */
+				max-width: 800px; /* Optional: Limit the width for better readability */
+			}			.white_inner {
+				width: auto;
+				height: auto;
+				padding: 4rem;
+				margin: 3rem auto;
+				display: flex;
+				flex-direction: column; 
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				max-width: 1400px; 
+				background: linear-gradient(145deg, rgba(248, 250, 252, 0.98), rgba(241, 245, 249, 0.95));
+				backdrop-filter: blur(20px) saturate(150%);
+				-webkit-backdrop-filter: blur(20px) saturate(150%);
+				border-radius: 20px;
+				border: 2px solid rgba(226, 232, 240, 0.6);
+				color: var(--text-dark);
+				box-shadow: 
+					0 20px 40px -12px var(--subtle-shadow),
+					0 8px 16px -4px rgba(148, 163, 184, 0.1),
+					0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.white_inner::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.06) 0%, transparent 60%),
+					radial-gradient(circle at 80% 20%, rgba(139, 126, 200, 0.04) 0%, transparent 60%);
+				pointer-events: none;
+				z-index: -1;
+			}			#contact .inner {
+				display: block;
+				text-align: center;
+			}
+			#footer .inner {
+				display: block;
+				text-align: center;
+			}
+
+			/* 列表样式美化 */
+			ul li {
+				margin: 0.8rem 0;
+				padding-left: 1.5rem;
+				position: relative;
+				color: var(--text-dark);
+			}
+
+			ul li::before {
+				content: '▪';
+				position: absolute;
+				left: 0;
+				color: var(--primary-blue);
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			/* 嵌套列表样式 */
+			ul li ul li::before {
+				content: '◦';
+				color: var(--soft-purple);
+			}
+
+			/* 按钮和交互元素样式 */
+			.btn {
+				background: linear-gradient(135deg, var(--primary-blue), var(--soft-purple));
+				color: var(--pure-white);
+				border: none;
+				padding: 1rem 2rem;
+				border-radius: 12px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+			}			.btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+			}
+
+			/* 卡片容器优化 */
+			.content-card {
+				background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+				backdrop-filter: blur(10px);
+				border-radius: 16px;
+				border: 1px solid rgba(226, 232, 240, 0.6);
+				box-shadow: 0 4px 16px var(--subtle-shadow);
+				transition: all 0.3s ease;
+			}
+
+			.content-card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+			}			/* PDF链接样式优化 - 冷色系 */
+			a[href$=".pdf"] {
+				color: var(--primary-blue);
+				font-weight: 600;
+				padding: 0.25rem 0.5rem;
+				border-radius: 6px;
+				background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(139, 126, 200, 0.05));
+				transition: all 0.3s ease;
+			}
+
+			a[href$=".pdf"]:hover {
+				background: linear-gradient(135deg, rgba(74, 144, 226, 0.2), rgba(139, 126, 200, 0.1));
+				transform: translateY(-1px);
+				box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+			}
+
+			/* 分隔线样式 */
+			hr {
+				border: none;
+				height: 2px;
+				background: linear-gradient(135deg, var(--primary-blue), var(--soft-purple));
+				border-radius: 1px;
+				margin: 2rem 0;
+				opacity: 0.6;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Home</a></li>
+							<li><a href="#content">Content</a></li>
+							<li><a href="#schedule">Schedule</a></li>	
+							<li><a href="#participation">Solicit Participation</a></li>
+							<li><a href="#talks">Invited Speakers</a></li>
+							<li><a href="#org">Organizers</a></li>	
+							<li><a href="#equipment">Equipment</a></li>														
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</nav>
+					
+					<div class="sidebar-footer">
+						<div class="date-info">October 24, 2025</div>
+						<div class="location-info">TBD<br>8:30 AM - 12:30 PM (GMT+8)</div>
+						<div class="manuscript-info">Manuscript 4780 submitted to IROS 2025, Received March 15, 2025</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">						<div class="inner">
+							<h3>The Workshop @ <a href="http://iros25.org/" target="_blank">2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</a> on</h3>
+							<h1>Towards Resilient Navigation in the Wild</h1>
+							
+							<div class="workshop-details">
+								<div class="detail-item">
+									<div class="detail-icon">📅</div>
+									<div class="detail-content">
+										<h4>Date</h4>
+										<p>October 24, 2025</p>
+									</div>
+								</div>
+								<div class="detail-item">
+									<div class="detail-icon">🕐</div>
+									<div class="detail-content">
+										<h4>Time</h4>
+										<p>8:30 AM - 12:30 PM (GMT+8)</p>
+									</div>
+								</div>
+								<div class="detail-item">
+									<div class="detail-icon">📍</div>
+									<div class="detail-content">
+										<h4>Location</h4>
+										<p>TBD</p>
+									</div>
+								</div>
+								<div class="detail-item">
+									<div class="detail-icon">🌐</div>
+									<div class="detail-content">
+										<h4>Website</h4>
+										<p><a href="https://github.com/MVPR-Group?tab=repositories" target="_blank">https://github.com/MVPR-Group?tab=repositories</a></p>
+									</div>
+								</div>
+							</div>
+
+							<br>
+							<br>
+							<br>
+							<p>
+								Due to their wide applications in detection and exploration, mapping and prospecting, unmanned reconnaissance, and operations in unstructured environments, the research on resilient navigation in the wild has made significant progress and has been deployed in agriculture, forestry, animal husbandry, emergency rescue, and military, etc. However, the environment perception and motion control of unmanned platform navigation systems are affected by the unstructured, variable, and uncertain characteristics of wild environments. The reliability and stability of unmanned platform navigation systems face huge challenges.
+								
+								This workshop addresses the core challenges of resilient navigation in the wild, with a particular focus on traversability analysis, navigation algorithms, dataset construction, and simulation environment design in complex unstructured environments. It aims to advance the integration of cutting-edge technologies, including embodied intelligence and large-scale model, into resilient navigation, driving progress toward safety, efficiency, and interpretability.
+							</p>							<div class="white_inner">
+							<h2 style="color: #1f2937;">Organizers</h2>
+								<div class="image-row">
+									<img src="images/ecnu-logo.png" alt="East China Normal University" class="full-size-img">
+									<img src="images/ieu-logo.png" alt="Information Engineering University" class="full-size-img">
+								</div>
+							</div>
+							<br>
+							<br>
+							Bringing together leading scholars from top-tier institutions such as Tsinghua University, Peking University, and the Chinese Academy of Sciences, the workshop facilitates state-of-the-art academic presentations and interdisciplinary discussions. By promoting innovative applications of resilient navigation in the wild, it seeks to establish solid theoretical foundations and technical pathways for the development of trustworthy, interpretable, and highly generalizable resilient navigation systems, driving breakthroughs in autonomous navigation in complex real-world environments.
+						</div>
+					</section>
+
+
+					<!-- Content -->
+					<section id="content" class="wrapper style2 fade-up">
+						<div class="inner">
+							<h2>Workshop Content & Expected Impact</h2>
+							<h3>Core Topics</h3>
+
+							<p> 
+								The primary objective of this workshop is to advance the state-of-the-art in resilient navigation in the wild by addressing critical challenges and bridging the gap between conventional structured-environment navigation and the complex demands of off-road settings. The content focuses on the latest developments in robotics and automation, including:
+							</p>
+
+							<ul>
+								<li><strong>Dataset Construction for Resilient Navigation in the Wild</strong>: Demands specialized data acquisition strategies and distinctive annotation methods different from structured environments, involving task-specific elements and labels that reflect complex wild terrain and environmental factors .</li>
+								<li><strong>Simulation for Resilient Navigation in the Wild</strong>: Generates dangerous, extreme, and complex scenarios hard to capture via conventional simulators or real-world data collection, providing high-quality, cost-effective support for training, testing, and deploying navigation algorithms for unstructured environments .</li>
+								<li><strong>Traversability Analysis and Navigation Algorithm Design</strong>: Explores traversability analysis of heterogeneous agents in diverse unstructured environments, laying the foundation for enhancing safety, robustness, and long-range planning capabilities of navigation algorithms .</li>
+							</ul>				
+
+							<br>
+							<h3>Expected Impact</h3>
+							<p>
+								To bring these cutting-edge topics to life, the workshop will feature interactive sessions, panel discussions, and live demonstrations—formats designed to foster dynamic interactions, encourage in-depth discussions, and create valuable networking opportunities. Dedicated poster sessions and roundtable discussions will serve as platforms for sharing diverse research findings and nurturing collaborative partnerships. By focusing on the unique challenges of resilient navigation in the wild, the workshop introduces fresh perspectives that complement the broader IROS program and stimulate interdisciplinary dialogue, paving the way for groundbreaking research and innovative applications .
+							</p>
+
+							<h3>Intended Audience</h3>
+							<p>
+								The intended audience comprises academic researchers, industry practitioners, and professionals with backgrounds in robotics, automation, and intelligent systems—especially those specializing in off-road navigation, resilient autonomous systems, and unmanned vehicle operation in complex unstructured environments. Attendees are expected to include faculty, postdoctoral researchers, graduate students, and engineers from academia and industry (focused on navigation algorithms, sensor data processing, simulation technologies) .
+							</p>
+							<p>
+								The workshop specifically targets members of relevant IEEE Robotics and Automation Society (RAS) Technical Committees, including:
+							</p>
+							<ol>
+								<li>Algorithms for Planning and Control of Robot Motion</li>
+								<li>Autonomous Ground Vehicles and Intelligent Transportation Systems</li>
+								<li>Cognitive Robotics</li>
+								<li>Computer & Robot Vision</li>
+								<li>Software Engineering for Robotics and Automation</li>
+								<li>Space Robotics </li>
+							</ol>
+							<p>Based on past IROS events, approximately 50 to 80 participants are expected .</p>
+
+						</div>
+					</section>
+
+
+				<!-- Schedule -->
+					<section id="schedule" class="wrapper style3 spotlights">
+						<div class="inner">
+							<h2>Tentative Schedule <a href="schedule_panel.pdf" target="_blank">[PDF]</a></h2>
+							<hr style="width:80%;text-align:left;margin-left:5">
+							<div class="row"></div>
+							
+							<h3>Time Zone: GMT+08</h3>
+							<table id="schedule_tab">
+								<tr>
+									<th>Time</th>
+									<th>Talk</th>
+									<th>Comments</th>
+								</tr>
+								<tr>
+									<td>8:30 - 9:00</td>
+									<td>Yu HU: WildOcc: A Benchmark for Off-Road Semantic Occupancy Prediction</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>9:10 - 9:40</td>
+									<td>Huijing Zhao: An Active and Contrastive Learning Framework for Fine-Grained Off-Road Semantic Segmentation</td>
+									<td>/</td>
+								</tr>
+								<tr>
+									<td>9:50 - 10:20</td>
+									<td>Chen Min: ORFD: A Dataset and Benchmark for Off-Road Freespace Detection</td>
+									<td>/</td>
+								</tr>
+								<tr>
+									<td>10:30 - 11:00</td>
+									<td>Yutong Wang: Perception and Planning of Intelligent Vehicles Based on BEV in Extreme Off-Road Scenarios</td>
+									<td>/</td>
+								</tr>
+								<tr>
+									<td>11:10 - 11:40</td>
+									<td>Huiyan Chen: Integrated Path Planning for Unmanned Differential Steering Vehicles in Off-Road Environment With 3D Terrains and Obstacles</td>
+									<td>/</td>
+								</tr>
+								<tr>
+									<td>11:50 - 12:30</td>
+									<td>Shengbo Li: Self-learned drifting control of automated vehicles beyond handling limit after rear-end collision</td>
+									<td>/</td>
+								</tr>
+							</table>
+							<p style="margin-top: 1rem; font-style: italic;">Note: The schedule may be adjusted; please refer to the latest update on the workshop website.</p>
+						</div>
+					</section>
+
+					<!-- Solicit Participation -->
+					<section id="participation" class="wrapper style4 fullscreen fade-up">
+						<div class="inner">
+							<h2>Plan to Solicit Participation</h2>					
+							<br>
+							<p>To ensure wide and diverse participation, a multi-channel outreach strategy is adopted:</p>
+							<ul>
+								<li><strong>Targeted Outreach via Established Channels</strong>: Leverage established mailing lists, professional social media platforms, and networks such as the IEEE Robotics and Automation Society to disseminate workshop details, including direct outreach to technical committees specializing in robotics, autonomous vehicles, and related areas .</li>
+								<li><strong>Direct Engagement with Technical Committees</strong>: Send invitations to members of relevant technical committees (e.g., robot motion planning, cognitive robotics, computer vision) to tap into networks of established experts and emerging researchers, ensuring insights from experienced professionals and engagement of early-career researchers .</li>
+								<li><strong>Utilization of Digital and Print Media</strong>: Employ targeted print media and academic bulletins (in addition to online platforms) to reach a broader audience; provide regular updates on the workshop website and social media to keep potential participants informed and engaged .</li>
+							</ul>
+							<p>This comprehensive plan aims to attract a dynamic and diverse group, fostering interaction and collaboration between established experts and early-career researchers .</p>
+
+							<br>
+							<h3>Dissemination of Workshop Outcomes</h3>
+							<p>To maximize impact, workshop materials will be widely disseminated through:</p>
+							<ul>
+								<li><strong>Online Repository</strong>: Share poster abstracts, presentation slides, and relevant documentation via a dedicated online platform .</li>
+								<li><strong>Special Issues/Proceedings</strong>: Collaborate with journals to publish a special issue or workshop proceedings, ensuring insights and advances reach a broader academic and industry audience .</li>
+								<li><strong>Digital Sharing</strong>: Encourage participants to share their work on academic networks and social media, further amplifying the workshop's outcomes .</li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- Invited Speakers -->
+					<section id="talks" class="wrapper style2 spotlights">
+						<div class="inner">
+							<h2>Invited Speakers </h2>
+							<br>_______________________________________________________________________________________________<br>
+							<br>
+							
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Xiaohui Li / Hao Fu" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Xiaohui Li / Hao Fu</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Robot navigation, Satellite denial of environmental navigation<br>
+										National University of Defense Technology, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+							
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Bailu Si" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Bailu Si</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Neural signal processing, Computational neuroscience, Neural machines<br>
+										Beijing Normal University, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Dang Lu" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Dang Lu</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Vehicle dynamic simulation theory, Automotive intelligence technology, Ultra-high safety automotive integrated control<br>
+										Jilin University, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Yu Hu" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Yu Hu</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Electronic science and technology, Automotive intelligence technology<br>
+										Institute of Computing, Chinese Academy of Sciences, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Chen Min" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Chen Min</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Autonomous driving intelligent perception<br>
+										Peking University, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Huijing Zhao" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Huijing Zhao</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Machine Perception, Behavior learning, Motion planning<br>
+										Peking University, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Yutong Wang" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Yutong Wang</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Anomaly and defect detection in the industrial and transportation sectors<br>
+										Institute of Automation, Chinese Academy of Sciences, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Huiyan Chen" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Huiyan Chen</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Theory and methods of intelligent vehicle design, Design and application of military ground unmanned platforms, Theory and methods of automatic transmission in vehicles<br>
+										Beijing Institute of Technology, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+							<div class="speaker">
+								<img src="images/speaker-placeholder.png" alt="Shengbo Li" class="img-list">
+								<div class="speaker-info">
+									<h3 class="name-list"><b>Shengbo Li</b></h3>
+									<div class="info-list">
+										Academic Affiliation: Perception, decision and control for connected & automated vehicles, Behavior data mining and driver assistance, Reinforcement learning and optimal control<br>
+										Tsinghua University, China 
+									</div>
+								</div>
+							</div>
+							<hr style="width:80%;text-align:left;margin-left:5">
+
+						</section>					
+					<style>
+					.speaker {
+						display: flex;
+						align-items: flex-start;
+						width: 80%;
+						min-height: 280px; /* 固定最小高度 */
+						margin-bottom: 3rem;
+						flex-wrap: wrap;
+						background: linear-gradient(145deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.95));
+						backdrop-filter: blur(10px);
+						padding: 2rem;
+						border-radius: 20px;
+						border: 2px solid rgba(226, 232, 240, 0.6);
+						box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+						transition: all 0.3s ease;
+					}
+					
+					.speaker:hover {
+						transform: translateY(-4px);
+						box-shadow: 0 16px 40px rgba(74, 144, 226, 0.15);
+						border-color: rgba(74, 144, 226, 0.3);
+					}
+					
+					.img-list {
+						width: 200px;
+						height: 200px;
+						border-radius: 20px;
+						object-fit: cover;
+						border: 3px solid rgba(74, 144, 226, 0.2);
+						margin-right: 2rem;
+						flex-shrink: 0; /* 防止图片缩小 */
+						transition: all 0.3s ease;
+					}
+					
+					.speaker:hover .img-list {
+						border-color: rgba(74, 144, 226, 0.5);
+						box-shadow: 0 8px 24px rgba(74, 144, 226, 0.2);
+					}
+					
+					.speaker-info {
+						text-align: left;
+						flex: 1;
+						color: #2C3E50;
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-start; /* 固定垂直对齐 */
+						min-height: 200px; /* 与图片高度对应 */
+					}
+					
+					.speaker-info h3.name-list {
+						color: #2C3E50;
+						margin-bottom: 1rem;
+						font-size: 1.5rem;
+						font-weight: 700;
+						line-height: 1.2;
+					}
+					
+					.speaker-info .info-list {
+						color: #6C757D;
+						margin-bottom: 1.5rem;
+						font-size: 1rem;
+						line-height: 1.4;
+						flex-shrink: 0; /* 防止被压缩 */
+					}
+					
+					.speaker-info a {
+						color: #4A90E2;
+						text-decoration: none;
+						transition: all 0.3s ease;
+					}
+					
+					.speaker-info a:hover {
+						color: #8B7EC8;
+						text-decoration: underline;
+					}
+
+					/* 响应式设计 */
+					@media screen and (max-width: 768px) {
+						.speaker {
+							flex-direction: column;
+							text-align: center;
+							min-height: auto;
+						}
+						
+						.img-list {
+							margin: 0 auto 1.5rem auto;
+						}
+						
+						.speaker-info {
+							text-align: center;
+							min-height: auto;
+						}
+					}
+					</style>
+
+					<!-- Organizers -->
+					<section id="org" class="wrapper style3 spotlights">
+						<div class="inner">
+							<br>
+							<br>
+							<h2 style="text-align: center;">Workshop Organizers</h2>
+							<div class="organizer-list">
+								<div class="organizer">
+									<img src="images/organizer-placeholder.png" alt="Prof. Dr. Xian Wei" class="circle-img">
+									<p><strong>Prof. Dr. Xian Wei</strong></p>
+									<p>East China Normal University, China</p>
+									<p>Email: <a href="mailto:xwei@sei.ecnu.edu.cn">xwei@sei.ecnu.edu.cn</a></p>
+									<p></p>
+								</div>
+								<div class="organizer">
+									<img src="images/organizer-placeholder.png" alt="Dr. Jian Yang" class="circle-img">
+									<p><strong>Dr. Jian Yang</strong></p>
+									<p>Information Engineering University, China</p>
+									<p>Email: <a href="mailto:jian.yang@tum.de">jian.yang@tum.de</a></p>
+									<p></p>
+								</div>
+							</div>
+						</div>
+					</section>							<style>
+					.organizer-list {
+						display: grid;
+						grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+						gap: 2rem;
+						justify-content: center;
+						padding: 2rem;
+					}
+					.organizer {
+						text-align: center;
+						padding: 2rem;
+						background: linear-gradient(145deg, rgba(248, 250, 252, 0.95), rgba(255, 255, 255, 0.9));
+						border-radius: 20px;
+						border: 2px solid rgba(226, 232, 240, 0.6);
+						box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+						transition: all 0.3s ease;
+					}
+					.organizer:hover {
+						transform: translateY(-6px);
+						box-shadow: 0 16px 40px rgba(74, 144, 226, 0.15);
+						border-color: rgba(74, 144, 226, 0.3);
+					}
+					.circle-img {
+						width: 180px;
+						height: 180px;
+						border-radius: 50%;
+						object-fit: cover;
+						border: 4px solid rgba(74, 144, 226, 0.2);
+						margin-bottom: 1rem;
+						transition: all 0.3s ease;
+					}
+					.organizer:hover .circle-img {
+						border-color: rgba(74, 144, 226, 0.6);
+						box-shadow: 0 8px 24px rgba(74, 144, 226, 0.2);
+					}
+					.organizer p {
+						margin: 0.5rem 0;
+						line-height: 1.4;
+						color: #2C3E50;
+					}
+					.organizer p strong {
+						display: block;
+						margin-bottom: 0.5rem;
+						color: #2C3E50;
+						font-weight: 600;
+					}
+					.organizer p strong a {
+						color: #4A90E2;
+						text-decoration: none;
+						font-weight: 600;
+						transition: all 0.3s ease;
+					}
+					.organizer p strong a:hover {
+						color: #8B7EC8;
+						text-decoration: underline;
+					}
+
+					.image-row {
+						display: flex;
+						justify-content: center; /* Centers images horizontally */
+						align-items: center; /* Aligns images vertically */
+						gap: 10px; /* Adds spacing between images */
+						flex-wrap: wrap; /* Allows images to wrap if needed */
+					}
+
+					.full-size-img {
+						max-width: 100%; /* Ensures images are responsive */
+						height: auto; /* Maintains aspect ratio */
+						flex: 1 1 auto; /* Allows images to grow and shrink dynamically */
+						max-height: 120px; /* Adjust as needed */
+					}
+					</style>
+	
+					<!-- Equipment -->
+					<section id="equipment" class="wrapper style4 fade-up">
+						<div class="inner">
+							<h2 style="text-align: center;">Equipment Requirements</h2>
+							<br>
+							<p>To support the interactive format and expected attendance (50-80 participants), the following equipment is requested:</p>
+							<ul>
+								<li><strong>Flexible Seating</strong>: Configurable arrangements that support both large group discussions and smaller breakout sessions .</li>
+								<li><strong>Technical Equipment</strong>: Additional microphones for panel discussions and Q&A sessions, extra projectors/monitors for displaying live demos and poster materials, and ample power outlets .</li>
+								<li><strong>Demo and Poster Space</strong>: A designated area for live demonstrations and poster sessions, with an expected display of around 10 posters (adjustable based on final registration numbers) .</li>
+							</ul>
+							<p>These requirements aim to create a conducive environment for both presentation and active engagement .</p>
+						</div>
+					</section>
+
+					<!-- Contact -->
+					<section id="contact" class="wrapper style5 fade-up">
+						<div class="inner">
+							<h2 style="text-align: center;">Contact</h2>
+							<br>
+							<div style="text-align: center; width: 100%;">
+							<p style="text-align: center; white-space: normal;">If you have any questions about the workshop, please contact the organizers:
+							<br>
+							Prof. Dr. Xian Wei: <a href="mailto:xwei@sei.ecnu.edu.cn">xwei@sei.ecnu.edu.cn</a>
+							<br>
+							Dr. Jian Yang: <a href="mailto:jian.yang@tum.de">jian.yang@tum.de</a>
+							</p>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<div style="text-align: center; width: 100%;">
+					<p>CONFIDENTIAL. Limited circulation. For review only. 🔶1-1, 1-17, 1-28, 1-58, 1-74, 1-92🔷</p>
+					<p>Participants are required to abide by the <a href="https://www.ieee-ras.org/about-ras/diversity-page/ieee-ras-code-of-conduct" target="_blank">IEEE RAS Code of Conduct</a></p>
+					<ul class="copyright" style="margin-top: 10px; padding: 0; list-style: none;">
+						<li> &copy; 2025 Workshop on Towards Resilient Navigation in the Wild @ IROS 2025. All rights reserved </li>
+						<li>Manuscript 4780 submitted to 2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). Received March 15, 2025. 🔶1-16, 1-27, 1-57, 1-73, 1-91, 1-95🔷</li>
+					</ul>
+					</div>
+				</div>
+				<br>
+
+			</footer>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+			<!-- Enhanced Navigation Script -->
+			<script>
+				$(document).ready(function() {
+					// Enhanced navigation active state handling
+					$('#sidebar nav a').click(function() {
+						$('#sidebar nav a').removeClass('active');
+						$(this).addClass('active');
+						$(this).parent().addClass('active');
+					});
+					
+					// Scroll-based navigation highlighting
+					$(window).scroll(function() {
+						var scrollDistance = $(window).scrollTop();
+						
+						$('section[id]').each(function() {
+							var sectionId = $(this).attr('id');
+							var sectionTop = $(this).offset().top - 100;
+							var sectionBottom = sectionTop + $(this).outerHeight();
+							
+							if (scrollDistance >= sectionTop && scrollDistance < sectionBottom) {
+								$('#sidebar nav a').removeClass('active');
+								$('#sidebar nav li').removeClass('active');
+								$('#sidebar nav a[href="#' + sectionId + '"]').addClass('active');
+								$('#sidebar nav a[href="#' + sectionId + '"]').parent().addClass('active');
+							}
+						});
+					});
+					
+					// Smooth scrolling enhancement
+					$('#sidebar nav a[href^="#"]').click(function() {
+						var target = $(this.hash);
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top - 50
+							}, 800, 'easeInOutQuad');
+						}
+					});
+				});
+			</script>
+
+	</body>
+</html>
