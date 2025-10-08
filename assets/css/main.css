@@ -226,7 +226,7 @@ select,
 textarea {
 	color: #334155;
 	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: 400;
 	line-height: 1.6;
 }
@@ -3862,7 +3862,7 @@ body.is-preload .wrapper.fade>.inner {
 
 /* Workshop Logo/Title Section */
 #sidebar>.inner::before {
-	content: "IROS 2025 AIR4S";
+	content: "IROS 2025 Workshop";
 	display: block;
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 1.2rem;
@@ -3873,18 +3873,6 @@ body.is-preload .wrapper.fade>.inner {
 	padding-bottom: 1em;
 	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-
-#sidebar>.inner::after {
-	content: "Embodied AI & Robotics";
-	display: block;
-	color: rgba(255, 255, 255, 0.7);
-	font-size: 0.85rem;
-	font-weight: 500;
-	letter-spacing: 0.05em;
-	margin-bottom: 2em;
-	line-height: 1.4;
-}
-
 /* Sidebar Footer */
 #sidebar .sidebar-footer {
 	margin-top: auto;
